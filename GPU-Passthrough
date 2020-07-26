@@ -1,31 +1,27 @@
 ##Source https://github.com/techno-tim/youtube-videos/tree/master/gpu-passthrough
 
 #edit grub
-```
-/etc/default/grub
-```
-Change this line:
-```
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on pcie_acs_override=downstream,multifunction video=efifb:eek:ff"
-```
-#run
-```
-update-grub
-```
-reboot reboot
+vim /etc/default/grub
 
-Edit modules
-```
+#Change the folowing lines:
+GRUB_CMDLINE_LINUX_DEFAULT=""
+to
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on pcie_acs_override=downstream,multifunction video=efifb:eek:ff"
+
+#run
+update-grub
+
+#Edit modules
 vim /etc/modules
-```
+----------
 vfio
 vfio_iommu_type1
 vfio_pci
 vfio_virqfd
-reboot reboot
+----------
 
-qm.conf (will be something like 100.conf)
-
+cat /etc/pve/qemu-server/100.conf
+----------
 agent: 1
 balloon: 4096
 bios: ovmf
@@ -50,10 +46,15 @@ unused1: slow1:vm-100-disk-0
 virtio0: fast1:vm-100-disk-0,size=80G
 vmgenid: 524a58dd-7e3e-44f4-abf4-9de0f490d936
 Add your PCI device
+----------
 
-edit /etc/modprobe.d/pve-blacklist.conf
-
+#Add to blacklist
+vim /etc/modprobe.d/pve-blacklist.conf
+----------
 blacklist nvidiafb
 blacklist nvidia
 blacklist radeon
 blacklist nouveau
+----------
+
+#Reboot when done
