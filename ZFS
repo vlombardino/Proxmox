@@ -6,10 +6,12 @@ zpool list -v
 #show stats 
 zpool status
 #or
-zpool status -v rpool
+zpool status -v
 
 #show status
-zpool iostat -v rpool
+zpool iostat
+#or
+zpool iostat -v
 
 #add cache to an existing pool
 zpool add -f rpool cache sdf
