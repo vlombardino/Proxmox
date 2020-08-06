@@ -1,6 +1,10 @@
 #list zfs pools
 zpool list
 
+#show stats and status
+zpool iostat -v rpool
+zpool status -v rpool
+
 #add cache to an existing pool
 zpool add -f rpool cache sdf
 
@@ -9,10 +13,6 @@ zpool add -f rpool log sdg
 
 #add cache and log to an existing pool
 zpool add -f rpool log sdf1 cache sdf2
-
-#show stats and status
-zpool iostat -v rpool
-zpool status -v rpool
 
 #upgrade zfs pool
 zpool upgrade rpool
