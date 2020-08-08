@@ -1,0 +1,5 @@
+#containers
+/etc/pve/lxc/
+
+#vm
+/etc/pve/qemu-server/
