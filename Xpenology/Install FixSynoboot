@@ -7,5 +7,5 @@ $ ls /dev/synoboot*
 #if output is different from above then install FixSynoboot.sh
 
 #download FixSynoboot.sh script and make it executable
-wget -q -nv --no-cookies "https://raw.githubusercontent.com/vlombardino/Proxmox/master/Xpenology/FixSynoboot.sh" -O /usr/local/etc/rc.d/FixSynoboot.sh
+wget -q -nv --no-cookies "https://raw.githubusercontent.com/vlombardino/Proxmox/master/Xpenology/files/FixSynoboot.sh" -O /usr/local/etc/rc.d/FixSynoboot.sh
 chmod 0755 /usr/local/etc/rc.d/FixSynoboot.sh
