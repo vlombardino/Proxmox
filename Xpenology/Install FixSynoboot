@@ -6,7 +6,6 @@ $ ls /dev/synoboot*
 
 #if output is different from above then install FixSynoboot.sh
 
-
-Download the attached FixSynoboot.sh script
-Copy the file to /usr/local/etc/rc.d
+#download FixSynoboot.sh script and make it executable
+wget -q -nv --no-cookies "https://raw.githubusercontent.com/vlombardino/Proxmox/master/Xpenology/FixSynoboot.sh" -O /usr/local/etc/rc.d/FixSynoboot.sh
 chmod 0755 /usr/local/etc/rc.d/FixSynoboot.sh
