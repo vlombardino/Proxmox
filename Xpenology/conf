@@ -1,0 +1,17 @@
+cp synoboot.img /var/lib/vz/template/iso/
+
+##
+args: -device ich9-usb-ehci1,id=usb-ctl-synoboot,addr=0x18 -drive id=usb-drv-synoboot,file=/var/lib/vz/template/iso/synoboot.img,if=none,format=raw -device usb-storage,id=usb-stor-synoboot,bootindex=1,removable=off,drive=usb-drv-synoboot -device ahci,id=ahci1,multifunction=on,bus=pci.0,addr=0x8
+boot: c
+bootdisk: sata0
+cores: 4
+memory: 16384
+name: Xpenology
+net0: e1000=AA:BB:CC:DD:EE:00,bridge=vmbr0
+numa: 0
+ostype: l26
+sata0: local-zfs:vm-216-disk-0,size=32G
+scsihw: virtio-scsi-pci
+smbios1: uuid=********-****-****-****-************
+sockets: 1
+vmgenid: ********-****-****-****-************
