@@ -1,0 +1,12 @@
+#check for synoboot devices
+
+#the correct output
+$ ls /dev/synoboot*
+/dev/synoboot  /dev/synoboot1  /dev/synoboot2
+
+#if output is different from above then install FixSynoboot.sh
+
+
+Download the attached FixSynoboot.sh script
+Copy the file to /usr/local/etc/rc.d
+chmod 0755 /usr/local/etc/rc.d/FixSynoboot.sh
