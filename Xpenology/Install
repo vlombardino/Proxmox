@@ -19,7 +19,6 @@ sed -i '1s|^|args: -device ich9-usb-ehci1,id=usb-ctl-synoboot,addr=0x18 -drive i
 ---------------------
 
 ###commands for shell in Xpenology###
-
 ###Install FixSynoboot###
 #source: https://xpenology.com/forum/topic/28183-running-623-on-esxi-synoboot-is-broken-fix-available/
 ls /dev/synoboot*
@@ -30,6 +29,7 @@ ls /dev/synoboot*
 sudo wget -q -nv --no-cookies "https://raw.githubusercontent.com/vlombardino/Proxmox/master/Xpenology/files/FixSynoboot.sh" -O /usr/local/etc/rc.d/FixSynoboot.sh
 sudo chmod 0755 /usr/local/etc/rc.d/FixSynoboot.sh
 
+###commands for shell in Xpenology###
 ###Enable SHR###
 #source: https://xpenology.club/enable-shr-in-dsm-6/
 sudo vi /etc.defaults/synoinfo.conf
