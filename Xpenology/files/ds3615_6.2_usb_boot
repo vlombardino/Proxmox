@@ -1,1 +1,0 @@
-args: -device ich9-usb-ehci1,id=usb-ctl-synoboot,addr=0x18 -drive id=usb-drv-synoboot,file=/var/lib/vz/template/iso/ds3615_6.2_synoboot.img,if=none,format=raw -device usb-storage,id=usb-stor-synoboot,bootindex=1,removable=off,drive=usb-drv-synoboot -device ahci,id=ahci1,multifunction=on,bus=pci.0,addr=0x8
