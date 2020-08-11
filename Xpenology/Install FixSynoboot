@@ -1,7 +1,7 @@
 #check for synoboot devices
 
 #the correct output
-$ ls /dev/synoboot*
+ls /dev/synoboot*
 /dev/synoboot  /dev/synoboot1  /dev/synoboot2
 
 #if output is different from above then install FixSynoboot.sh
