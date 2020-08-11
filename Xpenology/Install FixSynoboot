@@ -8,5 +8,5 @@ $ ls /dev/synoboot*
 ls: cannot access /dev/synoboot*: No such file or directory
 
 #download FixSynoboot.sh script and make it executable
-wget -q -nv --no-cookies "https://raw.githubusercontent.com/vlombardino/Proxmox/master/Xpenology/files/FixSynoboot.sh" -O /usr/local/etc/rc.d/FixSynoboot.sh
-chmod 0755 /usr/local/etc/rc.d/FixSynoboot.sh
+sudo wget -q -nv --no-cookies "https://raw.githubusercontent.com/vlombardino/Proxmox/master/Xpenology/files/FixSynoboot.sh" -O /usr/local/etc/rc.d/FixSynoboot.sh
+sudo chmod 0755 /usr/local/etc/rc.d/FixSynoboot.sh
