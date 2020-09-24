@@ -1,4 +1,5 @@
 ## OpenVPN Client
+#privileged container
 #path /var/lib/lxc/xxx/config or /etc/pve/lxc/xxx.conf
 lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 
