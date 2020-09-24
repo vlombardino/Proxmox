@@ -6,3 +6,7 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 # Check if TUN/TAP is enabled
 cd /dev/net/
 ls
+
+## Install OpenVPN
+wget https://git.io/vpn -O openvpn-install.sh
+bash openvpn-install.sh
