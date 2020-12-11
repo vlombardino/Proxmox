@@ -10,7 +10,11 @@ pvremove [PV Name]
 sgdisk --zap-all /dev/sda
 #Create new partion
 sgdisk -N 1 /dev/sda
+#Create physical volume
 pvcreate /dev/sda1
+#extend the pve volume group
 vgextend pve /dev/sda1
+#Show available space
 vgs
+#extend the logical volume pve data 
 lvextend /dev/pve/data -l +100%FREE
