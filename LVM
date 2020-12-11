@@ -1,0 +1,6 @@
+#Remove Disk
+lvs -a -o +devices
+pvdisplay
+vgchange -an [VG Name]
+vgremove [VG Name]
+pvremove [PV Name]
