@@ -6,7 +6,6 @@ vgremove [VG Name]
 pvremove [PV Name]
 
 #Add disk to pve pool
-lsblk -o name,size,fstype,mountpoint,path,label,model,serial
 sgdisk -N 1 /dev/sda
 pvcreate /dev/sda1
 vgextend pve /dev/sda1
