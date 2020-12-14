@@ -1,4 +1,5 @@
 ##Source https://github.com/techno-tim/youtube-videos/tree/master/gpu-passthrough
+##https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/
 
 #edit grub
 vim /etc/default/grub
@@ -6,7 +7,9 @@ vim /etc/default/grub
 #Change the folowing lines:
 GRUB_CMDLINE_LINUX_DEFAULT=""
 to
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on pcie_acs_override=downstream,multifunction video=efifb:eek:ff"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
+or
+GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
 
 #run
 update-grub
@@ -58,3 +61,9 @@ blacklist nouveau
 ----------
 
 #Reboot when done
+
+-----Additional modifications-----
+#Change the folowing lines:
+GRUB_CMDLINE_LINUX_DEFAULT=""
+to
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream,multifunction nofb nomodeset video=vesafb:off,efifb:off"
