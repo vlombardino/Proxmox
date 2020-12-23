@@ -15,13 +15,12 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
 update-grub
 
 #Edit modules
-vim /etc/modules
-----------
+cat << EOF >> /etc/modules
 vfio
 vfio_iommu_type1
 vfio_pci
 vfio_virqfd
-----------
+EOF
 
 cat /etc/pve/qemu-server/100.conf
 ----------
@@ -46,13 +45,11 @@ vmgenid: 524a58dd-7e3e-44f4-abf4-9de0f490d936
 ----------
 
 #Add to blacklist
-vim /etc/modprobe.d/pve-blacklist.conf
-----------
-blacklist nvidiafb
-blacklist nvidia
+cat << EOF >> /etc/modprobe.d/blacklist.conf
 blacklist radeon
 blacklist nouveau
-----------
+blacklist nvidia
+EOF
 
 #Reboot when done
 
