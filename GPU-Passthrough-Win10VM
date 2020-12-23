@@ -26,29 +26,23 @@ vfio_virqfd
 cat /etc/pve/qemu-server/100.conf
 ----------
 agent: 1
-balloon: 4096
-bios: ovmf
-boot: cdn
 bootdisk: virtio0
-cores: 8
-cpu: host,hidden=1,flags=+pcid
-efidisk0: fast1:vm-100-disk-1,size=128K
-hostpci0: 02:00,pcie=1,x-vga=1
-hostpci1: 04:00.0,rombar=0
-ide0: none,media=cdrom
+cores: 4
+cpu: host,hidden=1
+hostpci0: 02:00.0
+hostpci1: 04:00.0
 machine: q35
-memory: 14336
-name: beam
+memory: 16384
+name: WinGPU
+scsihw: virtio-scsi-pci
+net0: virtio=BB:BB:0B:BB:11:B2,bridge=vmbr0
 numa: 0
 ostype: win10
 scsihw: virtio-scsi-pci
-smbios1: uuid=d6febb0d-4242-4bdb-8aea-7c03e7b5df0e
+smbios1: uuid=d4febb0d-4444-4bdb-4aea-4c04e4b4df0e
 sockets: 1
-unused0: storage1:vm-100-disk-0
-unused1: slow1:vm-100-disk-0
 virtio0: fast1:vm-100-disk-0,size=80G
 vmgenid: 524a58dd-7e3e-44f4-abf4-9de0f490d936
-Add your PCI device
 ----------
 
 #Add to blacklist
