@@ -61,3 +61,10 @@ blacklist nouveau
 GRUB_CMDLINE_LINUX_DEFAULT=""
 to
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream,multifunction nofb nomodeset video=vesafb:off,efifb:off"
+
+#Add Vendor:Device IDs
+lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | grep -Po '\[.*]'
+echo "options vfio-pci ids=10de:1381,10de:0fbc" > /etc/modprobe.d/vfio.conf
+
+#Warnings in dmesg system log
+echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
