@@ -63,7 +63,7 @@ to
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream,multifunction nofb nomodeset video=vesafb:off,efifb:off"
 
 #Add Vendor:Device IDs
-lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | grep -Po '\[.*]'
+lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
 echo "options vfio-pci ids=10de:1381,10de:0fbc" > /etc/modprobe.d/vfio.conf
 
 #Warnings in dmesg system log
