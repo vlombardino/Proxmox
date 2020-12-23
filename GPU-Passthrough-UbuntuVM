@@ -30,8 +30,6 @@ EOF
 
 #Disable GPU from host
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | grep -Po '\[.*]'
-#or
-lspci -nn | grep -e 'VGA.*AMD' -e 'Audio.*AMD' | grep -Po '\[.*]'
 #Insert vender IDs for the GPU
 echo "options vfio-pci ids=****:****,****:*** disable_vga=1"> /etc/modprobe.d/vfio.conf
 update-initramfs -u
