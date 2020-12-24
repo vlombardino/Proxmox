@@ -6,9 +6,9 @@ vim /etc/default/grub
 
 #Change the folowing lines:
 GRUB_CMDLINE_LINUX_DEFAULT=""
-to
+#to
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
-or
+#or
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
 
 #run
@@ -22,8 +22,7 @@ vfio_pci
 vfio_virqfd
 EOF
 
-cat /etc/pve/qemu-server/100.conf
-----------
+cat << EOF >> /etc/pve/qemu-server/100.conf
 agent: 1
 bios: ovmf
 bootdisk: virtio0
@@ -43,7 +42,7 @@ sockets: 1
 vga: none
 virtio0: HDD:vm-100-disk-0,cache=writethrough,size=80G
 vmgenid: 524a58dd-7e3e-44f4-abf4-9de0f490d936
-----------
+EOF
 
 #Add to blacklist
 cat << EOF >> /etc/modprobe.d/blacklist.conf
@@ -57,8 +56,8 @@ EOF
 -----Additional modifications-----
 #Change the folowing lines:
 GRUB_CMDLINE_LINUX_DEFAULT=""
-to
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream,multifunction nofb nomodeset video=vesafb:off,efifb:off"
+#to
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on video=efifb:off"
 
 #Add Vendor:Device IDs
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
@@ -66,3 +65,6 @@ echo "options vfio-pci ids=10de:1381,10de:0fbc" > /etc/modprobe.d/vfio.conf
 
 #Warnings in dmesg system log
 echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
+
+#Motherboard BIOS
+CSM -> Boot -> off
