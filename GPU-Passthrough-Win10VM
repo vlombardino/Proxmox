@@ -25,22 +25,23 @@ EOF
 cat /etc/pve/qemu-server/100.conf
 ----------
 agent: 1
+bios: ovmf
 bootdisk: virtio0
 cores: 4
 cpu: host,hidden=1
-hostpci0: 02:00.0
-hostpci1: 04:00.0
+efidisk0: HDD:vm-210-disk-0,size=1M
+hostpci0: 02:00,pcie=1,x-vga=1
 machine: q35
 memory: 16384
 name: WinGPU
-scsihw: virtio-scsi-pci
 net0: virtio=BB:BB:0B:BB:11:B2,bridge=vmbr0
 numa: 0
 ostype: win10
 scsihw: virtio-scsi-pci
 smbios1: uuid=d4febb0d-4444-4bdb-4aea-4c04e4b4df0e
 sockets: 1
-virtio0: fast1:vm-100-disk-0,size=80G
+vga: none
+virtio0: HDD:vm-100-disk-0,cache=writethrough,size=80G
 vmgenid: 524a58dd-7e3e-44f4-abf4-9de0f490d936
 ----------
 
