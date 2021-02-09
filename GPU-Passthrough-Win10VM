@@ -61,7 +61,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on video=efifb:off"
 
 #Add Vendor:Device IDs
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
-echo "options vfio-pci ids=10de:1381,10de:0fbc" > /etc/modprobe.d/vfio.conf
+echo "options vfio-pci ids=10de:1381,10de:0fbc disable_vga=1" > /etc/modprobe.d/vfio.conf
 
 #Warnings in dmesg system log
 echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
