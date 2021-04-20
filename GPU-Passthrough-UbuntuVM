@@ -1,6 +1,9 @@
 #edit grub
 vim /etc/default/grub
 
+#Additional Software
+sudo apt install qemu-guest-agent
+
 #Change the folowing lines:
 GRUB_CMDLINE_LINUX_DEFAULT=""
 #to
