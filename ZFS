@@ -27,3 +27,6 @@ zpool scrub rpool
 
 #upgrade zfs pool
 zpool upgrade rpool
+
+#remove pool
+zpool destroy rpool
