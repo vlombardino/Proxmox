@@ -1,9 +1,0 @@
-###Enable SSH
-Debian | Ubuntu
-nano /etc/ssh/sshd_config
-vi /etc/ssh/sshd_config
-vim.tiny /etc/ssh/sshd_config
-
-Rocky
-dnf install openssh-server
-systemctl start sshd
