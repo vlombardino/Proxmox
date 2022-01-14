@@ -24,7 +24,7 @@ Extend the logical volume pve data
 lvextend /dev/pve/data -l +100%FREE
 ```
 
-### Remove Disk
+### Remove disk from pve pool
 ```
 lvs -a -o +devices
 pvdisplay
