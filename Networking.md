@@ -1,6 +1,9 @@
-#location
+## Networking file location
+```
 cat /etc/network/interfaces
-
+```
+Configuration for Mode 4 bonding
+```
 #bonding
 auto lo
 iface lo inet loopback
@@ -21,3 +24,4 @@ iface vmbr0 inet static
 	bridge-ports bond0
 	bridge-stp off
 	bridge-fd 0
+```
