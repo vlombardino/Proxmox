@@ -28,6 +28,7 @@ ls /dev/synoboot*
 ```
 If output is different from above then install FixSynoboot.sh
 > example: ```ls: cannot access /dev/synoboot*: No such file or directory```
+
 Download FixSynoboot.sh script and make it executable
 ```
 sudo wget -q -nv --no-cookies "https://raw.githubusercontent.com/vlombardino/Proxmox/master/Xpenology/files/FixSynoboot.sh" -O /usr/local/etc/rc.d/FixSynoboot.sh
