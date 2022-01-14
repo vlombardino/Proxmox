@@ -1,12 +1,3 @@
-Remove Disk
-```
-lvs -a -o +devices
-pvdisplay
-vgchange -an [VG Name]
-vgremove [VG Name]
-pvremove [PV Name]
-```
-
 ### Add disk to pve pool
 Remove all partitions
 ```
@@ -31,4 +22,13 @@ vgs
 Extend the logical volume pve data 
 ```
 lvextend /dev/pve/data -l +100%FREE
+```
+
+### Remove Disk
+```
+lvs -a -o +devices
+pvdisplay
+vgchange -an [VG Name]
+vgremove [VG Name]
+pvremove [PV Name]
 ```
