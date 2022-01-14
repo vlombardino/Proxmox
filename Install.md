@@ -1,5 +1,16 @@
 ## Proxmox VE No-Subscription Repository
 
+### bullseye
+```
+vim /etc/apt/sources.list.d/pve-enterprise.list
+
+####################ADD TEXT####################
+# PVE pve-no-subscription repository provided by proxmox.com,
+# NOT recommended for production use
+deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+################################################
+```
+
 ### buster
 ```
 vim /etc/apt/sources.list.d/pve-enterprise.list
