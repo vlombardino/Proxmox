@@ -1,2 +1,2 @@
 ### Proxmox Helper
-[Proxmox Helper Scripts](https://tteck.github.io/Proxmox/)
+[Proxmox Helper Scripts](https://github.com/tteck/Proxmox)
