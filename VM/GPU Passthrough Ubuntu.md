@@ -1,16 +1,11 @@
-### Setup Ubuntu VM
+# GPU Passthrough On Ubuntu VM
 
-Edit grub
+### Edit Grub On Proxmox Server
 ```
 vim /etc/default/grub
 ```
 
-Additional Software
-```
-sudo apt install qemu-guest-agent
-```
-
-Change the folowing lines:
+### Change the Folowing Lines
 ```
 GRUB_CMDLINE_LINUX_DEFAULT=""
 #to
@@ -19,14 +14,14 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
 ```
 
-Apply changes
+### Run After Editing Grub
 ```
 update-grub
 #or
 pve-efiboot-tool refresh
 ```
 
-Edit modules
+### Edit Modules
 ```
 cat << EOF >> /etc/modules
 vfio
@@ -36,7 +31,7 @@ vfio_virqfd
 EOF
 ```
 
-Add to blacklist
+### Add To Blacklist
 ```
 cat << EOF >> /etc/modprobe.d/blacklist.conf
 blacklist radeon
@@ -45,26 +40,27 @@ blacklist nvidia
 EOF
 ```
 
-Disable GPU from host
+### Disable GPU From Host
 ```
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
 ```
-Insert vender IDs for the GPU and update
+
+### Insert Vender GPU IDs & Update
 ```
 echo "options vfio-pci ids=****:****,****:*** disable_vga=1"> /etc/modprobe.d/vfio.conf
 update-initramfs -u
 ```
 
-### Create VM (Ubuntu 20.04). Install and configure driver for nvidia
+## Create VM (Ubuntu 20.04). Install and configure driver for nvidia
 
-Disable nouveau driver
+### Disable Nouveau Driver
 ```
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo update-initramfs -u
 ```
 
-Install nvidia driver
+### Install Nvidia Driver
 ```
 sudo apt update
 sudo apt install build-essential libglvnd-dev pkg-config
@@ -73,13 +69,18 @@ chmod +x NVIDIA-Linux-x86_64-455.23.04.run
 sudo ./NVIDIA-Linux-x86_64-455.23.04.run
 ```
 
-Edit ProxMox config file
+### Test Nvidia Driver
+```
+nvidia-smi
+```
+
+### Edit Proxmox Config File
 ```
 vim /etc/pve/qemu-server/100.conf
 cpu: host,hidden=1
 ```
 
-Test VM is nvidia driver is working
+### Additional Software
 ```
-nvidia-smi
+sudo apt install qemu-guest-agent
 ```
