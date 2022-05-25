@@ -1,4 +1,4 @@
-## VM Seedbox Install
+## VM Install
 > Ubuntu server 22.04
 ```
 sudo apt update && apt upgrade
