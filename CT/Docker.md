@@ -1,3 +1,6 @@
+## CT Install
+> Ubuntu server 22.04
+
 ### Allow Root Login Over SSH
 ```
 nano /etc/ssh/sshd_config
