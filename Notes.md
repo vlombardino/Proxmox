@@ -60,13 +60,21 @@ https://github.com/Weilbyte/PVEDiscordDark
 ---
 
 ## Rename Node
-```
+### Modify Host
+<pre>
 systemctl stop pve*
+
 nano /etc/hostname
+<b>pve</b>
+
 nano /etc/hosts
-hostname <new_host_name>
-hostname --ip-address
+192.168.1.XX pve.local pve
+
 reboot
+</pre>
+
+### Move CT & VM Files
+```
 mv /etc/pve/nodes/<old_host_name>/lxc/* /etc/pve/nodes/<new_host_name>/lxc
 mv /etc/pve/nodes/<old_host_name>/qemu-server/* /etc/pve/nodes/<new_host_name>/qemu-server
 rm -r /etc/pve/nodes/<old_host_name>
