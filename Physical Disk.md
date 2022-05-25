@@ -19,7 +19,7 @@ update VM 100: -sata1 /dev/disk/by-id/ata-Samsung_SSD_840_EVO_120GB_S1D1NSBF1111
 
 ## Additional Notes
 
-### Remove all partitions and data
+### Remove All Partitions & Data
 ```
 dd if=/dev/zero of=/dev/sda bs=1M count=10240
 #or
