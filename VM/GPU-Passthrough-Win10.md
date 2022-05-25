@@ -1,27 +1,34 @@
-##Source https://github.com/techno-tim/youtube-videos/tree/master/gpu-passthrough
-##https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/
-
-#edit grub
+### Edit Grub
+```
 vim /etc/default/grub
+```
 
-#Change the folowing lines:
+### Change the folowing lines:
+```
 GRUB_CMDLINE_LINUX_DEFAULT=""
 #to
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
 #or
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
+```
 
-#run
+### Run
+```
 update-grub
+```
 
-#Edit modules
+### Edit Modules
+```
 cat << EOF >> /etc/modules
 vfio
 vfio_iommu_type1
 vfio_pci
 vfio_virqfd
 EOF
+```
 
+### Edit VM
+```
 cat << EOF >> /etc/pve/qemu-server/100.conf
 agent: 1
 bios: ovmf
@@ -43,28 +50,37 @@ vga: none
 virtio0: HDD:vm-100-disk-0,cache=writethrough,size=80G
 vmgenid: 524a58dd-7e3e-44f4-abf4-9de0f490d936
 EOF
+```
 
-#Add to blacklist
+### Add To Blacklist
+```
 cat << EOF >> /etc/modprobe.d/blacklist.conf
 blacklist radeon
 blacklist nouveau
 blacklist nvidia
 EOF
+```
 
-#Reboot when done
-
------Additional modifications-----
-#Change the folowing lines:
+## Additional modifications
+### Change the folowing lines
+```
 GRUB_CMDLINE_LINUX_DEFAULT=""
 #to
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on video=efifb:off"
+```
 
-#Add Vendor:Device IDs
+### Add Vendor:Device IDs
+```
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
 echo "options vfio-pci ids=10de:1381,10de:0fbc disable_vga=1" > /etc/modprobe.d/vfio.conf
+```
 
-#Warnings in dmesg system log
+### Warnings In dmesg system log
 echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
 
-#Motherboard BIOS
-CSM -> Boot -> off
+### Motherboard BIOS
+>CSM -> Boot -> off
+
+### Sources
+https://github.com/techno-tim/youtube-videos/tree/master/gpu-passthrough \
+https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/
