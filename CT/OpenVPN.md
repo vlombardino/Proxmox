@@ -19,3 +19,6 @@ ls
 wget https://git.io/vpn -O openvpn-install.sh
 bash openvpn-install.sh
 ```
+
+## Sources
+https://pve.proxmox.com/wiki/OpenVPN_in_LXC
