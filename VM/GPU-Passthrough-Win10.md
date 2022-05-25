@@ -1,3 +1,5 @@
+## Setup Win 10 VM
+
 ### Edit Grub
 ```
 vim /etc/default/grub
@@ -12,7 +14,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
 ```
 
-### Run
+### Run After Editing Grub
 ```
 update-grub
 ```
