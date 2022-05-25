@@ -17,11 +17,10 @@ Container Templates ```/var/lib/vz/template/cache/```
 ---
 
 ## Networking
-> Config file location
+> Configuration For Mode 4 Bonding
 ```
 cat /etc/network/interfaces
 ```
-### Configuration For Mode 4 Bonding
 ```
 #bonding
 auto lo
@@ -61,17 +60,15 @@ https://github.com/Weilbyte/PVEDiscordDark
 
 ## Rename Node
 ### Modify Host
-<pre>
-systemctl stop pve*
+```systemctl stop pve*```
 
-nano /etc/hostname
-<b>pve</b>
+```nano /etc/hostname``` 
+> pve
 
-nano /etc/hosts
-192.168.1.XX pve.local pve
+```nano /etc/hosts```
+> 192.168.1.XX pve.local pve
 
-reboot
-</pre>
+```reboot```
 
 ### Move CT & VM Files
 ```
