@@ -76,7 +76,9 @@ echo "options vfio-pci ids=10de:1381,10de:0fbc disable_vga=1" > /etc/modprobe.d/
 ```
 
 ### Warnings In dmesg system log
+```
 echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
+```
 
 ### Motherboard BIOS
 >CSM -> Boot -> off
