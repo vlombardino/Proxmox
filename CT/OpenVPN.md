@@ -1,12 +1,21 @@
 ## OpenVPN Client
-#privileged container
-#path /var/lib/lxc/xxx/config or /etc/pve/lxc/xxx.conf
-lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
+> privileged container
 
-# Check if TUN/TAP is enabled
+### Edit CT Conf
+```
+nano /etc/pve/lxc/xxx.conf
+
+lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
+```
+
+### Check TUN/TAP
+```
 cd /dev/net/
 ls
+```
 
-## Install OpenVPN
+### Install OpenVPN
+```
 wget https://git.io/vpn -O openvpn-install.sh
 bash openvpn-install.sh
+```
