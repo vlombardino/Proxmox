@@ -56,3 +56,29 @@ python3 PVEDiscordDark.py
 
 ## Sources
 https://github.com/Weilbyte/PVEDiscordDark
+
+---
+
+## Rename Node
+```
+systemctl stop pve*
+nano /etc/hostname
+nano /etc/hosts
+hostname <new_host_name>
+hostname --ip-address
+reboot
+mv /etc/pve/nodes/<old_host_name>/lxc/* /etc/pve/nodes/<new_host_name>/lxc
+mv /etc/pve/nodes/<old_host_name>/qemu-server/* /etc/pve/nodes/<new_host_name>/qemu-server
+rm -r /etc/pve/nodes/<old_host_name>
+```
+
+### Separate A Node Without Reinstalling
+```
+pvecm status
+systemctl stop pve-cluster
+systemctl stop corosync
+pmxcfs -l
+rm /etc/pve/corosync.conf
+killall pmxcfs
+systemctl start pve-cluster
+```
