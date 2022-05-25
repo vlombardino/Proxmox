@@ -1,6 +1,6 @@
-## Setup Win 10 VM
+# GPU Passthrough On Win10 VM
 
-### Edit Grub
+### Edit Grub On Proxmox Server
 ```
 vim /etc/default/grub
 ```
