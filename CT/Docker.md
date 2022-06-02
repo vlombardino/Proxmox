@@ -36,6 +36,7 @@ docker-compose -v
 ### If Needed Get Latest Docker Compose
 ```
 curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
 chmod +x /usr/local/bin/docker-compose
 ```
 
@@ -43,6 +44,7 @@ chmod +x /usr/local/bin/docker-compose
 > [Portainer](https://hub.docker.com/r/portainer/portainer-ce)
 ```
 docker volume create portainer_data
+
 docker run -d \
 	-p 9000:9000 \
 	-p 8000:8000 \
