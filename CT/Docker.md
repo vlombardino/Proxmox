@@ -24,7 +24,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 
 apt update
 
-apt install docker-ce docker-ce-cli containerd.io docker-compose
+apt install docker-ce docker-ce-cli containerd.io docker-compose docker-compose-plugin
 ```
 
 ### Check Installed Version
