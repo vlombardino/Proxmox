@@ -30,6 +30,7 @@ apt install docker-ce docker-ce-cli containerd.io docker-compose docker-compose-
 ### Check Installed Version
 ```
 docker -v
+
 docker-compose -v
 ```
 
