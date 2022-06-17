@@ -49,3 +49,19 @@ Remove pool
 ```
 zpool destroy rpool
 ```
+
+## Remove failed to import zfs pool error
+Show failed services
+```
+systemctl | grep zfs
+```
+Disable services
+```
+systemctl disable zfs-import@rpool.service
+systemctl disable zfs-import@HDD0.service
+systemctl disable zfs-import@SSD0.service
+```
+Reset servcies
+```
+systemctl reset-failed
+```
