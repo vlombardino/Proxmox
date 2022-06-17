@@ -19,7 +19,8 @@ Container Templates ```/var/lib/vz/template/cache/```
 ## Networking
 > Configuration For Mode 4 Bonding
 ```
-cat /etc/network/interfaces
+cp /etc/network/interfaces /etc/network/interfaces.bak
+nano /etc/network/interfaces
 ```
 ```
 #bonding
