@@ -44,6 +44,10 @@ iface vmbr0 inet static
 	bridge-stp off
 	bridge-fd 0
 ```
+Change host file
+```
+nano /etc/hosts
+```
 
 ---
 
