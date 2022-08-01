@@ -67,6 +67,11 @@ sudo apt install build-essential libglvnd-dev pkg-config
 wget https://us.download.nvidia.com/XFree86/Linux-x86_64/455.23.04/NVIDIA-Linux-x86_64-455.23.04.run
 chmod +x NVIDIA-Linux-x86_64-455.23.04.run
 sudo ./NVIDIA-Linux-x86_64-455.23.04.run
+sudo reboot
+#or
+ubuntu-drivers devices
+sudo apt install nvidia-driver-440
+sudo reboot
 ```
 
 ### Test Nvidia Driver
