@@ -54,9 +54,9 @@ cat ca.pem >> certca.pem
 
 Add cert-key.pm & certca.pem to Proxmox
 > pve -> Certificates -> Upload Custom Certificate \
-```cat cert-key.pem```
+```cert-key.pem```
 > Private Key (Optional): \
-```cat certca.pem```
+```certca.pem```
 > Certificate Chain:
 
 ## Add Self-Signed Certificate to Ubuntu
