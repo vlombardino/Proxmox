@@ -78,20 +78,21 @@ sudo ubuntu-drivers autoinstall
 nvidia-smi
 ```
 
-### Edit Proxmox Config File
-```
-vim /etc/pve/qemu-server/100.conf
-cpu: host,hidden=1
-```
-
 ### Additional Software
 ```
 sudo apt install qemu-guest-agent
 ```
+
+## Troubleshooting
 
 ### Disable Nouveau Driver
 ```
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo update-initramfs -u
+```
+### Edit Proxmox Config File
+```
+vim /etc/pve/qemu-server/100.conf
+cpu: host,hidden=1
 ```
