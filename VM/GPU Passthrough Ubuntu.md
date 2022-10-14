@@ -41,11 +41,12 @@ EOF
 ```
 
 ### Disable GPU From Host
+Find the device and vendor id of your vga card ```[***:***]```.
 ```
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
 ```
 
-### Insert Vender GPU IDs & Update
+Insert Vender GPU IDs & Update
 ```
 echo "options vfio-pci ids=****:****,****:*** disable_vga=1"> /etc/modprobe.d/vfio.conf
 update-initramfs -u
