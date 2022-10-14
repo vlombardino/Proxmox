@@ -2,23 +2,20 @@
 
 ### Edit Grub On Proxmox Server
 ```
-vim /etc/default/grub
+nano /etc/default/grub
 ```
-
-### Change the Folowing Lines
+Intel
 ```
-GRUB_CMDLINE_LINUX_DEFAULT=""
-#to
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
-#or
+```
+AMD
+```
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
 ```
 
 ### Run After Editing Grub
 ```
 update-grub
-#or
-pve-efiboot-tool refresh
 ```
 
 ### Edit Modules
