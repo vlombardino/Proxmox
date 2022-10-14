@@ -1,4 +1,14 @@
 ## Debian | Ubuntu
+Check ssh status
+```
+systemctl status ssh
+```
+Enable and/or start ssh
+```
+systemctl enable ssh
+systemctl start ssh
+```
+Edit sshd_config file
 ```
 nano /etc/ssh/sshd_config
 #or
