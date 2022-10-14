@@ -54,27 +54,26 @@ echo "options vfio-pci ids=****:****,****:*** disable_vga=1"> /etc/modprobe.d/vf
 update-initramfs -u
 ```
 
-## Create VM (Ubuntu 20.04). Install and configure driver for nvidia
-
-### Disable Nouveau Driver
-```
-sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-sudo bash -c "echo options nouveau modset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-sudo update-initramfs -u
-```
+## Create VM (Ubuntu). Install and configure driver for nvidia
 
 ### Install Nvidia Driver
 ```
-sudo apt update
-sudo apt install build-essential libglvnd-dev pkg-config
-wget https://us.download.nvidia.com/XFree86/Linux-x86_64/455.23.04/NVIDIA-Linux-x86_64-455.23.04.run
-chmod +x NVIDIA-Linux-x86_64-455.23.04.run
-sudo ./NVIDIA-Linux-x86_64-455.23.04.run
-sudo reboot
-#or
 ubuntu-drivers devices
-sudo apt install nvidia-driver-440
+sudo ubuntu-drivers autoinstall
+```
+or
+```
+ubuntu-drivers devices
+sudo apt install nvidia-driver-515
 sudo reboot
+```
+or
+```
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:graphics-drivers/ppa -y
+sudo apt update
+ubuntu-drivers devices
+sudo ubuntu-drivers autoinstall
 ```
 
 ### Test Nvidia Driver
@@ -91,4 +90,11 @@ cpu: host,hidden=1
 ### Additional Software
 ```
 sudo apt install qemu-guest-agent
+```
+
+### Disable Nouveau Driver
+```
+sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+sudo bash -c "echo options nouveau modset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+sudo update-initramfs -u
 ```
