@@ -1,5 +1,11 @@
-## CT Install
-> Ubuntu server 22.04
+# CT Install
+
+### Operating System & Software
+- Proxmox CT
+- Ubuntu server 22.04
+- Docker
+
+---
 
 ### Allow Root Login Over SSH
 ```
