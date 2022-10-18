@@ -1,4 +1,4 @@
-# VM Install
+# Docker Install
 
 ### Operating System & Software
 - Proxmox VM
