@@ -1,4 +1,4 @@
-# CT Install
+# Docker Install
 
 ### Operating System & Software
 - Proxmox CT
