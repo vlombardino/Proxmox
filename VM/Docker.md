@@ -1,5 +1,12 @@
-## VM Install
-> Ubuntu server 22.04
+# VM Install
+
+### Operating System & Software
+- Proxmox VM
+- Ubuntu server 22.04
+- Docker
+
+---
+
 ```
 sudo apt update && apt upgrade
 ```
