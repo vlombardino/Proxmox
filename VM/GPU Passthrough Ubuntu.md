@@ -42,6 +42,10 @@ Find the device and vendor id of your vga card ```[***:***]```.
 ```
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
 ```
+or
+```
+lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | sed 's/.*\[\([^]]*\)\].*/\1/g'
+```
 
 Insert Vender GPU IDs & Update
 ```
