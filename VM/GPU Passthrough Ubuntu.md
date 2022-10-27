@@ -38,20 +38,12 @@ EOF
 ```
 
 ### Disable GPU From Host
-Find the device and vendor id of your vga card ```[***:***]```.
-```
-lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
-```
-or
+Output the device and vendor id(s) of your vga card.
 ```
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | sed 's/.*\[\([^]]*\)\].*/\1/g'
 ```
 
-Insert Vender GPU IDs & Update
-```
-echo "options vfio-pci ids=****:****,****:*** disable_vga=1"> /etc/modprobe.d/vfio.conf
-```
-or
+Create vender GPU IDs & Update
 ```
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | sed 's/.*\[\([^]]*\)\].*/\1/g' | xargs -n 2 bash -c 'echo "options vfio-pci ids=$0,$1 disable_vga=1"> /etc/modprobe.d/vfio.conf'
 ```
