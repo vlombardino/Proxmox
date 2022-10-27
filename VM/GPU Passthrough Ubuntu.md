@@ -42,15 +42,17 @@ Output the device and vendor id(s) of your vga card.
 ```
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | sed 's/.*\[\([^]]*\)\].*/\1/g'
 ```
-
-Create vender GPU IDs & Update
->/etc/modprobe.d/vfio.conf
+Create vender GPU IDs file
 ```
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | sed 's/.*\[\([^]]*\)\].*/\1/g' | xargs -n 2 bash -c 'echo "options vfio-pci ids=$0,$1 disable_vga=1"> /etc/modprobe.d/vfio.conf'
 ```
+Check output of file ```/etc/modprobe.d/vfio.conf```
 ```
-update-initramfs -u
+cat /etc/modprobe.d/vfio.conf
 ```
+Reboot system
+
+---
 
 ## Create VM (Ubuntu). Install and configure driver for nvidia
 
