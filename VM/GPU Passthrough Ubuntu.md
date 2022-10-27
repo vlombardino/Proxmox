@@ -51,6 +51,10 @@ Insert Vender GPU IDs & Update
 ```
 echo "options vfio-pci ids=****:****,****:*** disable_vga=1"> /etc/modprobe.d/vfio.conf
 ```
+or
+```
+lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | sed 's/.*\[\([^]]*\)\].*/\1/g' | xargs -n 2 bash -c 'echo "options vfio-pci ids=$0,$1 disable_vga=1"> /etc/modprobe.d/vfio.conf'
+```
 ```
 update-initramfs -u
 ```
