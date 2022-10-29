@@ -1,6 +1,6 @@
 Edit VM configuration file
 ```
-vim /etc/pve/local/qemu-server/22.conf
+nano /etc/pve/local/qemu-server/22.conf
 ```
 
 Add argument to VM configuration file.
