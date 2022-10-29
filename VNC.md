@@ -13,4 +13,4 @@ VNC Settings:
 ```
 Server: 192.168.1.91:5922
 ```
-> * No other settings need to be added
+> No other settings need to be added
