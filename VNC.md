@@ -1,4 +1,5 @@
 Edit VM configuration file
+> Hardware -> Display -> Default
 ```
 nano /etc/pve/local/qemu-server/22.conf
 ```
