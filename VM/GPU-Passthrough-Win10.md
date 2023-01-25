@@ -1,4 +1,11 @@
-# GPU Passthrough On Win10 VM
+# GPU Passthrough (Win10)
+
+### Operating System & Software
+- Proxmox VM
+- Windows 10
+- Nvidia Drivers
+
+---
 
 ### Edit Grub On Proxmox Server
 ```

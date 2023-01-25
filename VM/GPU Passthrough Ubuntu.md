@@ -1,4 +1,11 @@
-# GPU Passthrough On Ubuntu VM
+# GPU Passthrough (Ubuntu)
+
+### Operating System & Software
+- Proxmox VM
+- Ubuntu 22.04
+- Nvidia Drivers
+
+---
 
 ### Edit Grub On Proxmox Server
 ```
