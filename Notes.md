@@ -17,9 +17,16 @@ Container Templates ```/var/lib/vz/template/cache/```
 ---
 
 ## Networking
-> Configuration For Mode 4 Bonding
+Show IP Address
+```
+ip -br -c a
+```
+
+Configuration For Mode 4 Bonding
 ```
 cp /etc/network/interfaces /etc/network/interfaces.bak
+```
+```
 nano /etc/network/interfaces
 ```
 ```
