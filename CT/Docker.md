@@ -43,6 +43,12 @@ Install docker from the downloaded script
 sudo sh get-docker.sh
 ```
 
+### Allow user to configure Docker
+> Requires a reboot
+```
+sudo usermod -aG docker $USER
+sudo reboot
+```
 
 ### Check Installed Version
 ```
