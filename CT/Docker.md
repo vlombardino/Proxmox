@@ -18,7 +18,7 @@ PermitRootLogin yes
 service ssh restart
 ```
 
-### Docker Install
+### Docker Install ([repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository))
 ```
 apt update && apt upgrade
 
@@ -32,6 +32,17 @@ apt update
 
 apt install docker-ce docker-ce-cli containerd.io docker-compose docker-compose-plugin
 ```
+
+### Docker Install ([script](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script))
+Download script from [get.docker.com](https://get.docker.com/)
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+```
+Install docker from the downloaded script
+```
+sudo sh get-docker.sh
+```
+
 
 ### Check Installed Version
 ```
