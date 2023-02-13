@@ -18,18 +18,18 @@ Container Templates ```/var/lib/vz/template/cache/```
 
 ## Networking
 Show IP Address
-```
+```bash
 ip -br -c a
 ```
 
 Configuration For Mode 4 Bonding
-```
+```bash
 cp /etc/network/interfaces /etc/network/interfaces.bak
 ```
-```
+```bash
 nano /etc/network/interfaces
 ```
-```
+```bash
 #bonding
 auto lo
 iface lo inet loopback
@@ -52,7 +52,7 @@ iface vmbr0 inet static
 	bridge-fd 0
 ```
 Change host file
-```
+```bash
 nano /etc/hosts
 ```
 
@@ -83,14 +83,14 @@ https://github.com/Weilbyte/PVEDiscordDark
 ```reboot```
 
 ### Move CT & VM Files
-```
+```bash
 mv /etc/pve/nodes/<old_host_name>/lxc/* /etc/pve/nodes/<new_host_name>/lxc
 mv /etc/pve/nodes/<old_host_name>/qemu-server/* /etc/pve/nodes/<new_host_name>/qemu-server
 rm -r /etc/pve/nodes/<old_host_name>
 ```
 
 ### Separate A Node Without Reinstalling
-```
+```bash
 pvecm status
 systemctl stop pve-cluster
 systemctl stop corosync

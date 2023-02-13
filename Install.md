@@ -1,7 +1,7 @@
 ## Proxmox VE No-Subscription Repository
 
 ### bullseye
-```
+```bash
 vim /etc/apt/sources.list.d/pve-enterprise.list
 
 ####################ADD TEXT####################
@@ -12,7 +12,7 @@ deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 ```
 
 ### buster
-```
+```bash
 vim /etc/apt/sources.list.d/pve-enterprise.list
 
 ####################ADD TEXT####################
@@ -27,7 +27,7 @@ wget http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg -O /etc/apt/t
 ```
 
 ### stretch
-```
+```bash
 vim /etc/apt/sources.list.d/pve-enterprise.list
 
 ####################ADD TEXT####################

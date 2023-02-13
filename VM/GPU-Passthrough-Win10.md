@@ -8,12 +8,12 @@
 ---
 
 ### Edit Grub On Proxmox Server
-```
+```bash
 vim /etc/default/grub
 ```
 
 ### Change the folowing lines:
-```
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT=""
 #to
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
@@ -22,12 +22,12 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
 ```
 
 ### Run After Editing Grub
-```
+```bash
 update-grub
 ```
 
 ### Edit Modules
-```
+```bash
 cat << EOF >> /etc/modules
 vfio
 vfio_iommu_type1
@@ -37,7 +37,7 @@ EOF
 ```
 
 ### Edit VM
-```
+```bash
 cat << EOF >> /etc/pve/qemu-server/100.conf
 agent: 1
 bios: ovmf
@@ -62,7 +62,7 @@ EOF
 ```
 
 ### Add To Blacklist
-```
+```bash
 cat << EOF >> /etc/modprobe.d/blacklist.conf
 blacklist radeon
 blacklist nouveau
@@ -72,20 +72,20 @@ EOF
 
 ## Additional modifications
 ### Change the folowing lines
-```
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT=""
 #to
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on video=efifb:off"
 ```
 
 ### Add Vendor:Device IDs
-```
+```bash
 lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA'
 echo "options vfio-pci ids=10de:1381,10de:0fbc disable_vga=1" > /etc/modprobe.d/vfio.conf
 ```
 
 ### Warnings In dmesg system log
-```
+```bash
 echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
 ```
 
