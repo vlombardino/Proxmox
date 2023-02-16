@@ -1,3 +1,46 @@
+# [Install Notes](https://www.proxmox.com/en/proxmox-ve/get-started)
+
+## [Proxmox VE No-Subscription Repository](https://pve.proxmox.com/wiki/Package_Repositories)
+
+### [Bullseye](https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_11_Bullseye)
+```bash
+vim /etc/apt/sources.list.d/pve-enterprise.list
+
+####################ADD TEXT####################
+# PVE pve-no-subscription repository provided by proxmox.com,
+# NOT recommended for production use
+deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+################################################
+```
+
+### [Buster](https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_Buster)
+```bash
+vim /etc/apt/sources.list.d/pve-enterprise.list
+
+####################ADD TEXT####################
+#deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
+
+# PVE pve-no-subscription repository provided by proxmox.com,
+# NOT recommended for production use
+deb http://download.proxmox.com/debian/pve buster pve-no-subscription
+################################################
+
+wget http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg
+```
+
+### [Stretch](https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_Stretch)
+```bash
+vim /etc/apt/sources.list.d/pve-enterprise.list
+
+####################ADD TEXT####################
+#deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise
+
+# PVE pve-no-subscription repository provided by proxmox.com,
+# NOT recommended for production use
+deb http://download.proxmox.com/debian/pve stretch pve-no-subscription
+################################################
+```
+
 ## Proxmox Helper
 [Proxmox Helper Scripts](https://github.com/tteck/Proxmox)
 
