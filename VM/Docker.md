@@ -39,11 +39,12 @@ docker -v
 docker-compose -v
 ```
 
-### Latest Docker Compose (If Needed)
+### If Needed Get Latest Docker Compose
+> Change version number to most current ([Latest Release](https://github.com/docker/compose/releases))
 ```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-sudo chmod +x /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 ```
 
 ### Allow User To Configure Docker
