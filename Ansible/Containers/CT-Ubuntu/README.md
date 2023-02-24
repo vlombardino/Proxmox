@@ -7,7 +7,7 @@ Check if module is installed
 ansible-galaxy collection list
 ```
 
-Install with the following:
+Install with the following
 ```bash
 ansible-galaxy collection install community.general
 ```
