@@ -1,0 +1,16 @@
+- hosts: all
+  tasks:
+  - name: Create new container
+    community.general.proxmox:
+      node: pve
+      api_user: root@pam
+      api_password: Pa$$w0rd
+      api_host: 192.168.1.10
+      vmid: 180
+      ostemplate: local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst
+      storage: local-lvm
+      cores: 2
+      memory: 2048
+      hostname: TestAnsible
+      password: CT-Pa$$w0rd
+      netif: '{"net0":"name=eth0,gw=192.168.1.1,ip=192.168.1.180/24,bridge=vmbr0"}'

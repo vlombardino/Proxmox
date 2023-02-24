@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+  - name: Remove python3-pip
+    apt:
+      name: python3-pip
+      state: absent
+
+  - name: Remove proxmoxer
+    pip:
+      name: proxmoxer
+      state: absent

@@ -1,0 +1,71 @@
+---
+- name: Purge Docker from Ubuntu 22.04
+  hosts: all
+  become: true
+  tasks:
+    - name: Stop Docker service
+      service:
+        name: docker
+        state: stopped
+
+    - name: Remove all Docker packages
+      apt:
+        name: docker-ce
+        state: absent
+        purge: yes
+
+    - name: Remove Docker user and group
+      group:
+        name: docker
+        state: absent
+      ignore_errors: true
+
+    - name: Remove Docker user and group
+      user:
+        name: docker
+        state: absent
+      ignore_errors: true
+
+    - name: Remove Docker's repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: absent
+      ignore_errors: true
+    
+    - name: Remove Docker's GPG key
+      apt_key:
+        id: 0EBFCD88
+        state: absent
+      ignore_errors: true
+
+    - name: Reboot System
+      reboot:
+        reboot_timeout: 1800
+      ignore_errors: true
+
+    - name: Waiting for system...
+      wait_for_connection:
+        delay: 3
+        timeout: 5
+
+    - name: Remove Docker configuration files
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /etc/docker
+        - /var/lib/docker
+        - /var/run/docker.sock
+        - /usr/local/bin/docker-compose
+      ignore_errors: true
+
+    - name: Clean unwanted olderstuff
+      apt:
+        autoremove: yes
+        purge: yes
+
+    - name: Check the Uptime of the servers
+      shell: "uptime"
+      register: Uptime
+
+    - debug: var=Uptime

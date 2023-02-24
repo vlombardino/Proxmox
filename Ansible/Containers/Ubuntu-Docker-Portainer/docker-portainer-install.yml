@@ -1,0 +1,61 @@
+---
+- name: Install Docker w/portainer on Ubuntu 22.04
+  hosts: all
+  tasks:
+  - name: Update package index
+    apt:
+      update_cache: yes
+
+  - name: Install Docker packages
+    apt:
+      name:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
+        - software-properties-common
+      state: present
+
+  - name: Add Docker's GPG key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Add Docker's repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+      state: present
+
+  - name: Install Docker
+    apt:
+      name: docker-ce
+      state: present
+
+  # REQUIRED PACKAGES FOR USING ANSIBLE DOCKER (for portainer installation below)
+  - name: Install related Ubuntu packages
+    apt:
+      name: "{{ packages }}"
+      state: latest
+    vars:
+      packages:
+        - python3-pip
+        - mc
+
+  - name: Install python packages
+    pip:
+      name: docker
+
+  # https://docs.ansible.com/ansible/latest/collections/community/docker/docker_container_module.html#ansible-collections-community-docker-docker-container-module
+  - name: Create portainer container
+    docker_container:
+      name: portainer
+      image: portainer/portainer-ce
+      state: started
+      recreate: yes
+      restart_policy: always
+      published_ports:
+        - "8000:8000"
+        - "9000:9000"
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - portainer_data:/data

@@ -1,0 +1,18 @@
+- name: Create Ubuntu 22.04 VM on Proxmox
+  proxmox:
+    api_user: "root@pam"
+    api_password: "mypassword"
+    api_host: "proxmox.example.com"
+    vmid: 100
+    node: proxmox
+    ostype: l26
+    memory: 2048
+    sockets: 1
+    cores: 2
+    netif: "name=eth0,bridge=vmbr0"
+    storage: local-lvm
+    disk: "size=20G"
+    cdrom: "path=/var/lib/vz/template/iso/ubuntu-22.04-standard_22.04-1_amd64.iso"
+    password: "mypassword"
+    force: yes
+  register: vm_result
