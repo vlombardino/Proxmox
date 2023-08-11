@@ -1,6 +1,6 @@
 # Notes
 
-### Desktop Install
+### Desktop Install [Ubuntu]
 ```bash
 sudo apt install acpid -y
 sudo systemctl disable --now acpid.service acpid.socket acpid.path
