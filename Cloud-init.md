@@ -21,4 +21,5 @@ Configure drive for VM
 qm set 1000 --scsihw virtio-scsi-pci --scsi0 HDD0:vm-1000-disk-0
 qm set 1000 --ide2 HDD0:cloudinit
 qm set 1000 --boot c --bootdisk scsi0
+qm set 1000 --serial0 socket --vga serial0
 ```
