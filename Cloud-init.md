@@ -9,7 +9,7 @@ cd var/lib/vz/template/iso/
 wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-disk-kvm.img
 ```
 
-### Import cloud image to VM ubuntu-cloud [5000]
+### Import cloud image to VM ubuntu-cloud
 > HDD0 is storage name
 ```
 qm importdisk 1000 jammy-server-cloudimg-amd64-disk-kvm.img HDD0
