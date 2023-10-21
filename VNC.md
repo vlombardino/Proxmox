@@ -8,9 +8,10 @@ Add argument to VM configuration file.
 ```bash
 args: -vnc 0.0.0.0:22
 ```
+> Poweroff VM if running.
 
 VNC Settings:
 ```bash
 Server: 192.168.1.91:5922
 ```
-> No other settings need to be added
+> No other settings need to be added.
