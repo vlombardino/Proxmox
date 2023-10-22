@@ -99,5 +99,4 @@ EOF
 >CSM -> Boot -> off
 
 ### Sources
-https://pve.proxmox.com/wiki/PCI_Passthrough \
-https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/
+https://pve.proxmox.com/wiki/PCI_Passthrough
