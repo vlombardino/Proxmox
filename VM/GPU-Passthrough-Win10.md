@@ -57,6 +57,12 @@ Check output of file ```/etc/modprobe.d/vfio.conf```.
 ```bash
 cat /etc/modprobe.d/vfio.conf
 ```
+
+### If CPU is set to host
+```bash
+echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
+```
+
 Reboot system.
 
 ### Sample VM configuration
