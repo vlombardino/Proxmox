@@ -37,7 +37,7 @@ EOF
 
 ### Add To Blacklist
 ```bash
-cat << EOF >> /etc/modprobe.d/blacklist.conf
+cat << EOF >> /etc/modprobe.d/pve-blacklist.conf
 blacklist radeon
 blacklist nouveau
 blacklist nvidia
@@ -47,11 +47,11 @@ EOF
 ### Disable GPU From Host
 Check vendor GPU ID(s) of your vga card.
 ```bash
-lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | sed 's/.*\[\([^]]*\)\].*/\1/g'
+lspci -nn | grep -e NVIDIA
 ```
 Create vender GPU IDs file.
 ```bash
-lspci -nn | grep -e 'VGA.*NVIDIA' -e 'Audio.*NVIDIA' | sed 's/.*\[\([^]]*\)\].*/\1/g' | xargs -n 2 bash -c 'echo "options vfio-pci ids=$0,$1 disable_vga=1"> /etc/modprobe.d/vfio.conf'
+lspci -nn | grep -e NVIDIA | sed -n -e 's/.*\[\([^]]*\)\].*/\1/p' | paste -s -d, | sed 's/.*/options vfio-pci ids=& disable_vga=1/' > /etc/modprobe.d/vfio.conf
 ```
 Check output of file ```/etc/modprobe.d/vfio.conf```.
 ```bash
