@@ -66,8 +66,7 @@ echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
 Reboot system.
 
 ### Sample VM configuration
-```bash
-cat << EOF >> /etc/pve/qemu-server/100.conf
+```
 agent: 1
 args: -vnc 0.0.0.0:11
 bios: ovmf
@@ -90,7 +89,6 @@ sockets: 1
 vga: none
 tpmstate0: NVME1:100/vm-100-disk-2.raw,size=4M,version=v2.0
 vmgenid: 524a58dd-7e3e-44f4-abf4-9de0f490d936
-EOF
 ```
 
 ## Additional modifications
