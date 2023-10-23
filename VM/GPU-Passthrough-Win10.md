@@ -1,8 +1,8 @@
-# GPU Passthrough (Win10)
+# GPU Passthrough (Win11)
 
 ### Operating System & Software
 - Proxmox VM
-- Windows 10
+- Windows 11
 - Nvidia Drivers
 
 ---
