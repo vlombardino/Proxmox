@@ -21,7 +21,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"
 ```
 Auto detect & modify bash command
 ```bash
-if lscpu | grep -qi 'Intel'; then sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"/' /etc/default/grub; elif lscpu | grep -qi 'AMD'; then sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"/' /etc/default/grub; else echo "Unknown CPU vendor"; fi
+if lscpu | grep -qi 'Intel'; then sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"/' /etc/default/grub; elif lscpu | grep -qi 'AMD'; then sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"/' /etc/default/grub; else echo "Unknown CPU vendor"; fi
 ```
 
 ### Run After Editing Grub
