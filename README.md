@@ -149,4 +149,7 @@ systemctl start pve-cluster
 > disk/partition '/dev/sda' has a holder (500)
 ```
 sgdisk --zap-all /dev/sda
+readlink /sys/block/sda
+echo 1 > /sys/block/sda/device/delete
+echo "- - -" > /sys/class/scsi_host/host8/scan
 ```
