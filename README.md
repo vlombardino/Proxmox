@@ -142,3 +142,11 @@ rm /etc/pve/corosync.conf
 killall pmxcfs
 systemctl start pve-cluster
 ```
+
+---
+
+### Disk notes
+> disk/partition '/dev/sda' has a holder (500)
+```
+sgdisk --zap-all /dev/sda
+```
