@@ -7,7 +7,7 @@
 
 ---
 
-### Edit Grub On Proxmox Server
+### Edit grub on proxmox server
 ```bash
 nano /etc/default/grub
 ```
@@ -24,12 +24,12 @@ Auto detect & modify bash command
 if lscpu | grep -qi 'Intel'; then sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"/' /etc/default/grub; elif lscpu | grep -qi 'AMD'; then sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"/' /etc/default/grub; else echo "Unknown CPU vendor"; fi
 ```
 
-### Run After Editing Grub
+### Run after editing grub
 ```bash
 update-grub
 ```
 
-### Edit Modules
+### Edit modules
 ```bash
 cat << EOF >> /etc/modules
 vfio
@@ -38,12 +38,12 @@ vfio_pci
 vfio_virqfd #not needed if on kernel 6.2 or newer
 EOF
 ```
-### Run After Changing Modules
+### Run After modifying modules
 ```bash
 update-initramfs -u -k all
 ```
 
-### Add To Blacklist
+### Add to blacklist
 ```bash
 cat << EOF >> /etc/modprobe.d/pve-blacklist.conf
 blacklist radeon
@@ -52,7 +52,7 @@ blacklist nvidia
 EOF
 ```
 
-### Disable GPU From Host
+### Disable GPU from host
 Check vendor GPU ID(s) of your vga card.
 ```bash
 lspci -nn | grep -e NVIDIA
@@ -71,7 +71,7 @@ Reboot system.
 
 ## Create VM (Ubuntu). Install and configure driver for nvidia
 
-### Install Nvidia Driver
+### Install Nvidia driver
 ```bash
 ubuntu-drivers devices
 sudo ubuntu-drivers autoinstall
@@ -91,25 +91,25 @@ ubuntu-drivers devices
 sudo ubuntu-drivers autoinstall
 ```
 
-### Test Nvidia Driver
+### Test Nvidia driver
 ```bash
 nvidia-smi
 ```
 
-### Additional Software
+### Additional software
 ```bash
 sudo apt install qemu-guest-agent
 ```
 
 ## Troubleshooting
 
-### Disable Nouveau Driver
+### Disable nouveau driver
 ```bash
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo update-initramfs -u
 ```
-### Edit Proxmox Config File
+### Edit proxmox config file
 ```bash
 vim /etc/pve/qemu-server/100.conf
 cpu: host,hidden=1
