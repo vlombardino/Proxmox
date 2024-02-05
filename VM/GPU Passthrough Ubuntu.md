@@ -35,8 +35,12 @@ cat << EOF >> /etc/modules
 vfio
 vfio_iommu_type1
 vfio_pci
-vfio_virqfd
+vfio_virqfd #not needed if on kernel 6.2 or newer
 EOF
+```
+### Run After Changing Modules
+```bash
+update-initramfs -u -k all
 ```
 
 ### Add To Blacklist
