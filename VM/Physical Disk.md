@@ -21,9 +21,9 @@ qm set 100 -sata1 /dev/disk/by-id/ata-Samsung_SSD_840_EVO_120GB_S1D1NSBF111111L
 
 ## Additional Notes
 
-### Remove All Partitions & Data
+### Remove all partitions & data
 ```bash
-dd if=/dev/zero of=/dev/sdX bs=1M status=progress
+dd if=/dev/zero of=/dev/sdX bs=512 count=1 status=progress
 ```
 or
 ```bash
