@@ -3,7 +3,11 @@
 ### Identify Disk
 > Show ```/dev/disk/by-id/``` output.
 ```bash
-find /dev/disk/by-id/ -type l|xargs -I{} ls -l {}|grep -v -E '[0-9]$' |sort -k11|cut -d' ' -f9,10,11,12
+find /dev/disk/by-id/
+```
+> Cleaner output.
+```bash
+printf -v s '%*s' "${COLUMNS:-$(tput cols)}"; s=${s// /-}; printf -- "%s\nDisk | Size | Device\n%s\n" "$s" "$s"; lsblk -ndo NAME,SIZE | sed '/^loop/d' | while read d z; do echo "$d | $z | $(find /dev/disk/by-id -type l ! -name '*nvme-eui*' -lname "*$d" -printf %p -quit)"; done
 ```
 
 ### Add Disk To VM
