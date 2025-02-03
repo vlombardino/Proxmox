@@ -7,7 +7,7 @@ find /dev/disk/by-id/
 ```
 > Cleaner output.
 ```bash
-printf -v s '%*s' "${COLUMNS:-$(tput cols)}"; s=${s// /-}; printf -- "%s\nDisk | Size | Device\n%s\n" "$s" "$s"; lsblk -ndo NAME,SIZE | sed '/^loop/d' | while read d z; do echo "$d | $z | $(find /dev/disk/by-id -type l ! -name '*nvme-eui*' -lname "*$d" -printf %p -quit)"; done
+printf -v s '%*s' "${COLUMNS:-$(tput cols)}"; s=${s// /-}; printf -- "%s\nDisk | Size | Device\n%s\n" "$s" "$s"; lsblk -ndo NAME,SIZE | sed '/^loop/d' | while read d z; do echo "$d | $z | $(find /dev/disk/by-id -type l ! -name '*nvme-eui*' ! -name '*wwn*' -lname "*$d" -printf %p -quit)"; done
 ```
 
 ### Add Disk To VM
