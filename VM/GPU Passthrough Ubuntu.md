@@ -46,9 +46,15 @@ update-initramfs -u -k all
 ### Add to blacklist
 ```bash
 cat << EOF >> /etc/modprobe.d/pve-blacklist.conf
-blacklist radeon
 blacklist nouveau
 blacklist nvidia
+blacklist nvidiafb
+blacklist snd_hda_codec_hdmi
+blacklist snd_hda_intel
+blacklist snd_hda_codec
+blacklist snd_hda_core
+blacklist radeon
+blacklist amdgpu
 EOF
 ```
 
